@@ -1,0 +1,1 @@
+const double space = 5.0;
