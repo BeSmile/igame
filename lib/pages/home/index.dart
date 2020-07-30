@@ -58,7 +58,6 @@ final List<Widget> imageSliders = imgList
         ))
     .toList();
 
-//final personJson = _encode('');
 Map userMap = jsonDecode(
     '{"icons": [{"url": "http://cdnimg01.game100.wiki/M00/0D/71/ChpCl1v3eK2Ec0LdAAAAAIJPxo4046.png","title": "天命之子"}]}');
 final GridIcon user = GridIcon.fromJson(userMap);

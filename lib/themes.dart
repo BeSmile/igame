@@ -1,1 +1,2 @@
-const double space = 5.0;
+const double space = 10.0;
+const double borderRadius = 5.0;
