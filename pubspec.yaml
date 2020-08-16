@@ -30,6 +30,7 @@ dependencies:
   cupertino_icons: ^0.1.3
   carousel_slider: ^2.2.1
   json_annotation: ^3.0.1
+  webview_flutter: ^0.3.22
 
 dev_dependencies:
   flutter_test:
@@ -55,6 +56,7 @@ flutter:
   assets:
      - assets/images/dc/ChpCl1v3eK2Ec0LdAAAAAIJPxo4046.png
      - assets/images/dc/1586491947773_3172595.png
+     - assets/images/dc/header.jpg
   #   - images/a_dot_ham.jpeg
 
 

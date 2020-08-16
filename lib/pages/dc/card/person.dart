@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:webview_flutter/webview_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:igame/pages/dc/card/person_skill_dialog.dart';
 import 'package:igame/themes.dart';
@@ -242,12 +243,50 @@ class _DCardPersonWidgetState extends State<DCardPersonWidget> {
             child: Stack(
               alignment:Alignment.center,
               children: <Widget>[
+                Positioned(
+//                  left: space,
+//                  right: space,
+//                  top: space,
+//                  bottom: space,
+//                  height: 400,
+//                  width: 375,
+                  child: WebView(
+                    initialUrl: 'https://besmile.github.io/live2d-dc.github.io/#/c158_02',
+                    javascriptMode: JavascriptMode.unrestricted,
+                    onWebViewCreated: (WebViewController webViewController) {
+//                      _controller.complete(webViewController);
+                    },
+                    // TODO(iskakaushik): Remove this when collection literals makes it to stable.
+                    // ignore: prefer_collection_literals
+                    javascriptChannels: <JavascriptChannel>[
+//                      _toasterJavascriptChannel(context),
+                    ].toSet(),
+                    navigationDelegate: (NavigationRequest request) {
+                      if (request.url.startsWith('https://www.youtube.com/')) {
+                        print('blocking navigation to $request}');
+                        return NavigationDecision.prevent;
+                      }
+                      print('allowing navigation to $request');
+                      return NavigationDecision.navigate;
+                    },
+                    onPageStarted: (String url) {
+                      print('Page started loading: $url');
+                    },
+                    onPageFinished: (String url) {
+                      print('Page finished loading: $url');
+                    },
+                    gestureNavigationEnabled: true,
+                  ),
+                ),
                 Positioned (
                   left: space,
                   bottom: space,
                   width: 200,
 
                   child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white60 ,
+                    ),
                     child: Column(
                       children: <Widget>[
                         Row(
@@ -382,7 +421,7 @@ class _DCardPersonWidgetState extends State<DCardPersonWidget> {
                           child: Container(
                               margin: EdgeInsets.only(bottom: 10),
                               decoration: BoxDecoration(
-                                color: Colors.white10,
+                                color: Colors.white60 ,
                               ),
                               child: ConstrainedBox(
                                 constraints: BoxConstraints.expand(height: 20),
@@ -410,7 +449,7 @@ class _DCardPersonWidgetState extends State<DCardPersonWidget> {
                           child: Container(
                               margin: EdgeInsets.only(bottom: 10),
                               decoration: BoxDecoration(
-                                color: Colors.white10,
+                                color: Colors.white60,
                               ),
                               child: ConstrainedBox(
                                 constraints: BoxConstraints.expand(height: 20),
