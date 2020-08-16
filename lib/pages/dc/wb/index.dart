@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:igame/colors.dart';
 import 'package:igame/pages/dc/wb/team.dart';
 
 import '../../../themes.dart';
@@ -20,121 +21,83 @@ class DCWBWidgetState extends State<DCWBWidget> {
         title: Text('世界WB'),
       ),
       body: Container(
-        decoration: new BoxDecoration(
-          color: Colors.white,
-          //设置Border属性给容器添加边框
-//          border: new Border.all(
-//            //为边框添加颜色
-//            color: Colors.,
-//            //边框宽度
-//            width: ,
-//          ),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.all(0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,// 设置内容左对齐
-            children: <Widget>[
-              Container(
-                padding: EdgeInsets.all(space),
-                child: Text('下次WB属性为 火'),
+        width: double.infinity,
+        //高度
+        height: double.infinity,
+        child: Column(
+          children: <Widget>[
+            Container(
+              height: 250,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                color: Colors.transparent,
               ),
-              Divider(
-//                color: Colors.transparent,
-//                height: space * 4,
-                thickness: space,
-                indent: 0,
-                endIndent: 0,
-              ),
-              Container(
-                padding: EdgeInsets.all(0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,// 设置内容左对齐
+              child: ConstrainedBox(
+                constraints: BoxConstraints.expand(),
+                child: Stack(
+                  alignment: Alignment.center,
                   children: <Widget>[
-                    Padding(
-                      padding: new EdgeInsets.all(space),
-                      child: Row(
-                        children: <Widget>[
-                          Icon(Icons.warning),
-                          new Text('木属性raid推荐')
-                        ],
+                    Positioned(
+                      top: 0,
+//                      bottom: 0,
+                      left: 0,
+                      right: 0,
+                      child: Image(
+                        height: 200,
+                        fit: BoxFit.fill,
+                        image: AssetImage('assets/images/dc/header.jpg'),
                       ),
                     ),
-                    Divider(
-                      indent: 0,
-                      endIndent: 0,
-                      thickness: 0,
-                      height: 0,
-                    ),
-                    Padding(
-                      padding: EdgeInsets.all(space),
-                      child: Column(
-                        children: <Widget>[
-                          GestureDetector(
-                            onTap: () => {
-                              Navigator.of(context).push(MaterialPageRoute(builder: (context) => DCWebTeamWidget()))
-                            },
-                            child: Container(
-                              height: 150,
-                              margin: EdgeInsets.only(bottom: space),
-                              width: double.infinity,
-                              decoration:BoxDecoration(
-                                borderRadius: BorderRadius.circular(space),
-                                image: DecorationImage(
-                                  image: NetworkImage('http://cdnimg.gamekee.com/images/dc/1585903897934_90789181.png?x-image-process=image/resize,m_lfit,h_250,w_250'),
-                                  fit: BoxFit.fill,
-                                )
-                              ),
-                              child: Container(
-                                height: double.infinity,
-                                width: double.infinity,
-                                alignment: Alignment.center,
-                                decoration: BoxDecoration(
-                                  color: new Color.fromRGBO(0, 0, 0, 0.5),
-                                  borderRadius: BorderRadius.circular(borderRadius),
-                                ),
-                                child: Text("火属性",style: TextStyle(color: Colors.white)),
-//                                    color: Colors.red,
-                              ),
-                            ),
+                    Positioned(
+                      bottom: 0,
+                      child: FittedBox(
+                        fit: BoxFit.contain,
+                        child: Container(
+                          width: 350,
+                          padding: EdgeInsets.all(space),
+                          decoration: BoxDecoration(
+                            color: dcThemeColor,
+                            borderRadius: BorderRadius.circular(space)
                           ),
-                          GestureDetector(
-                            onTap: () => {
-                              Navigator.of(context).push(MaterialPageRoute(builder: (context) => DCWebTeamWidget()))
-                            },
-                            child: Container(
-                              height: 150,
-                              width: double.infinity,
-                              decoration:BoxDecoration(
-                                borderRadius: BorderRadius.circular(space),
-                                image: DecorationImage(
-                                  image: NetworkImage('http://cdnimg.gamekee.com/images/dc/1585903897934_90789181.png?x-image-process=image/resize,m_lfit,h_250,w_250'),
-                                  fit: BoxFit.fill,
-                                )
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Row(
+                                children: <Widget>[
+                                  Image(
+                                    image: NetworkImage('https://dss0.bdstatic.com/6Ox1bjeh1BF3odCf/it/u=2084035443,1586370949&fm=74&app=80&f=PNG&size=f121,121?sec=1880279984&t=4f35befb2af217047aa5ba8e4efb33b2'),
+                                    width: 50,
+                                    height: 50,
+                                  ),
+                                  Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: <Widget>[
+                                      Text(
+                                        '标题'
+                                      ),
+                                      Text('副标题')
+                                    ],
+                                  )
+                                ],
                               ),
-                              child: Container(
-                                height: double.infinity,
-                                width: double.infinity,
-                                alignment: Alignment.center,
-                                decoration: BoxDecoration(
-                                  color: new Color.fromRGBO(0, 0, 0, 0.5),
-                                  borderRadius: BorderRadius.circular(borderRadius),
-                                ),
-                                child: Text("水属性",style: TextStyle(color: Colors.white)),
-//                                    color: Colors.red,
-                              ),
-                            ),
+                              SizedBox(height: 10),
+                              Text(
+                                '我的哒哒哒哒哒我的哒哒哒哒哒我的哒哒哒哒哒我的哒哒哒哒哒我的哒哒哒哒哒我的哒哒哒哒哒v我的哒哒哒哒哒',
+                                softWrap: true,
+                                maxLines: 2,
+                                textAlign: TextAlign.left,
+                                overflow: TextOverflow.ellipsis,
+                              )
+                            ],
                           ),
-
-                        ],
+                        ),
                       ),
                     )
                   ],
                 ),
               ),
-
-            ],
-          ),
+            )
+          ],
         ),
       ),
     );
